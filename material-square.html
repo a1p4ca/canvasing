@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script>
+        window.onload = function() {
+            const canvas = document.getElementById('material')
+            const context = canvas.getContext('2d')
+
+            window.addEventListener('resize', resizeCanvas)
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth
+                canvas.height = window.innerHeight
+                console.log(canvas.width, canvas.height)
+                draw()
+            }
+
+            function draw() {
+                const centerY = canvas.height / 2 + 60
+                const centerX = canvas.width / 2
+                const secondY = centerY - 60
+                const thirdY = secondY - 60
+                context.fillStyle = '#1f4288'
+                context.beginPath()
+                context.moveTo(centerX - 130, centerY)
+                context.lineTo(centerX + 10, centerY - 70)
+                context.lineTo(centerX + 130, centerY)
+                context.lineTo(centerX - 10, centerY + 70)
+                context.fill()
+
+                context.fillStyle = '#ee4a7f'
+                context.beginPath()
+                context.moveTo(centerX - 130, secondY)
+                context.lineTo(centerX + 10, secondY - 70)
+                context.lineTo(centerX + 130, secondY)
+                context.lineTo(centerX - 10, secondY + 70)
+                context.fill()
+
+                context.fillStyle = '#ffffff'
+                context.beginPath()
+                context.moveTo(centerX - 130, thirdY)
+                context.lineTo(centerX + 10, thirdY - 70)
+                context.lineTo(centerX + 130, thirdY)
+                context.lineTo(centerX - 10, thirdY + 70)
+                context.fill()
+            }
+            resizeCanvas()
+        }
+
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        canvas {
+            background-color: #D1C4E9;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="material" width="800px" height="1000px"></canvas>
+</body>
+
+</html>
